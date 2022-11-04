@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/',[ScheduleController::class,'index'])->name('index');
-
 Auth::routes();
+
+//ログインユーザーのみアクセスできる
+Route::group(['middleware' => 'auth'],function(){
+    Route::get('/',[ScheduleController::class,'index'])->name('index');
+    Route::get('/detail/{id}',[ScheduleController::class,'detail'])->name('detail');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -40,12 +40,14 @@
                 <div class="mt-8 bg-white dark:bg-white-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <ul>
-                            @foreach($schedules as $schedule)
-                            <li><a href="{{ route('detail',['id' => $schedule->id]) }}">{{ $schedule->sch_part }}</a></li>
-                            @endforeach
+                            <li>{{ $schedule->sch_date }}</li>
+                            <li>{{ $schedule->sch_part }}</li>
+                            <li>{{ $schedule->exercise_id }}</li>
+                            <li>{{ $schedule->sch_contents }}</li>
                         </ul>
                     </div>
                 </div>
+                <a href="{{ route('index') }}" style="color: white">戻る</a>
             </div>
         </div>
     </body>
