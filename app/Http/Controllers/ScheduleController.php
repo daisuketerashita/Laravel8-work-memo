@@ -25,4 +25,10 @@ class ScheduleController extends Controller
             'schedule' => $schedule,
         ]);
     }
+
+    //新規登録画面
+    public function add()
+    {
+        return view('schedule.add');
+    }
 }

@@ -19,6 +19,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/',[ScheduleController::class,'index'])->name('index');
     Route::get('/detail/{id}',[ScheduleController::class,'detail'])->name('detail');
+    Route::get('/add',[ScheduleController::class,'add'])->name('add');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
