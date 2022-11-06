@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     use HasFactory;
+
+    //リレーション
+    public function exercises()
+    {
+        return $this->hasMany('App\Models\Exercise');
+    }
 }
