@@ -42,7 +42,6 @@
                         <ul>
                             <li>{{ $schedule->sch_date }}</li>
                             <li>{{ $schedule->sch_part }}</li>
-                            <li>{{ $schedule->exercise_id }}</li>
                             <li>{{ $schedule->sch_contents }}</li>
                         </ul>
                     </div>

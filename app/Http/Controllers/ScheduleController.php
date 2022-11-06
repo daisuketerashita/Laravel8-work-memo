@@ -31,4 +31,21 @@ class ScheduleController extends Controller
     {
         return view('schedule.add');
     }
+
+    //新規登録機能
+    public function store(Request $request)
+    {
+        $schedule = new Schedule();
+
+        //値を代入
+        $schedule->user_id = \Auth::id();
+        $schedule->sch_date = $request->sch_date;
+        $schedule->sch_part = $request->sch_part;
+        $schedule->sch_contents = $request->sch_contents;
+
+        // インスタンスの状態をデータベースに書き込む
+        $schedule->save();
+
+        return redirect()->route('index');
+    }
 }

@@ -421,7 +421,7 @@
         @endif
 
         <div style="color: white">
-            <form method='POST' action="" enctype="multipart/form-data">
+            <form method='POST' action="{{ route('store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
@@ -431,16 +431,15 @@
                     <div class="form-group">
                         <label>部位</label>
                         <select name="sch_part">
-                            <option value="leg">脚</option>
-                            <option value="chest">胸</option>
-                            <option value="back">背中</option>
-                            <option value="arm">腕</option>
-                            <option value="shoulder">腕</option>
+                            <option value="脚">脚</option>
+                            <option value="胸">胸</option>
+                            <option value="背中">背中</option>
+                            <option value="腕">腕</option>
+                            <option value="腕">腕</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>種目</label>
-                        <input type="number" name="exercise_id">
                     </div>
                     <div class="form-group">
                         <label>メモ</label>
