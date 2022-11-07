@@ -41,11 +41,10 @@ class ScheduleController extends Controller
         $schedule->user_id = \Auth::id();
         $schedule->sch_date = $request->sch_date;
         $schedule->sch_part = $request->sch_part;
-        $schedule->sch_contents = $request->sch_contents;
 
         // インスタンスの状態をデータベースに書き込む
         $schedule->save();
 
-        return redirect()->route('index');
+        return redirect()->route('exe.add');
     }
 }

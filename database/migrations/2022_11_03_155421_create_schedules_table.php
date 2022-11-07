@@ -19,7 +19,6 @@ class CreateSchedulesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->date('sch_date');
             $table->string('sch_part');
-            $table->text('sch_contents');
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@ class CreateExercisesTable extends Migration
             $table->integer('weight');
             $table->integer('repetition');
             $table->integer('set_num');
+            $table->text('exe_contents');
             $table->timestamps();
 
             $table->foreign('schedule_id')->references('id')->on('schedules');
