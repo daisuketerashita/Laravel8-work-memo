@@ -18,10 +18,10 @@ class ExerciseController extends Controller
     //種目登録処理
     public function store(int $id,Request $request)
     {
-        $exercise = new Exercise();
-        // $exercise->schedule_id = Auth::user()->schedule()->where('id',$id)->get();
+        $schedule_id = Schedule::find($id);
+        
         //値を代入
-        $exercise->schedule_id = Schedule::find($id);
+        $exercise = new Exercise();
         $exercise->name = $request->name;
         $exercise->weight = $request->weight;
         $exercise->repetition = $request->repetition;
@@ -29,7 +29,7 @@ class ExerciseController extends Controller
         $exercise->exe_contents = $request->exe_contents;
 
         // インスタンスの状態をデータベースに書き込む
-        $exercise->save();
+        $schedule_id->exercises()->save($exercise);
 
         return redirect()->route('index');
     }
