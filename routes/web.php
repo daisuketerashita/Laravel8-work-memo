@@ -24,7 +24,8 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/add',[ScheduleController::class,'add'])->name('add');
     Route::post('/add',[ScheduleController::class,'store'])->name('store');
     //種目登録
-    Route::get('/add/exercise',[ExerciseController::class,'add'])->name('exe.add');
+    Route::get('/add/exercise/{id}',[ExerciseController::class,'add'])->name('exe.add');
+    Route::post('/add/exercise/{id}',[ExerciseController::class,'store'])->name('exe.store');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
