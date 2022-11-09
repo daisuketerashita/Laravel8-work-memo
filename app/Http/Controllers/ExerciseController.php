@@ -38,10 +38,29 @@ class ExerciseController extends Controller
     //編集画面の表示
     public function edit(int $id,int $exe_id)
     {
+        $schedule = Schedule::find($id);
         $exercise = Exercise::find($exe_id);
 
         return view('exercise.edit',[
+            'schedule' => $schedule,
             'exercise' => $exercise,
         ]);
+    }
+
+    //編集処理
+    public function update(int $id,int $exe_id,Request $request)
+    {
+        //種目を取得
+        $exercise = Exercise::find($exe_id);
+
+        //値を代入
+        $exercise->name = $request->name;
+        $exercise->weight = $request->weight;
+        $exercise->repetition = $request->repetition;
+        $exercise->set_num = $request->set_num;
+        $exercise->exe_contents = $request->exe_contents;
+        $exercise->save();
+
+        return redirect()->route('index');
     }
 }
