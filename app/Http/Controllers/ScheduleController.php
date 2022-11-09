@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Schedule;
+use App\Models\Exercise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,8 +22,12 @@ class ScheduleController extends Controller
         //ユーザーに紐付いたスケジュール情報を取得
         $schedule = Auth::user()->schedules()->where('id',$id)->first();
 
+        // 選ばれた部位に紐づく種目を取得する
+        $exercises = Exercise::where('schedule_id', $schedule->id)->get();
+
         return view('schedule.detail',[
             'schedule' => $schedule,
+            'exercises' => $exercises,
         ]);
     }
 

@@ -17,7 +17,15 @@
             <ul>
                 <li>{{ $schedule->sch_date }}</li>
                 <li>{{ $schedule->sch_part }}</li>
-                <li>{{ $schedule->sch_contents }}</li>
+            </ul>
+            <ul>
+                @foreach($exercises as $exercise)
+                <li>{{ $exercise->name }}</li>
+                <li>重さ：{{ $exercise->weight }}</li>
+                <li>回数：{{ $exercise->repetition }}</li>
+                <li>セット数：{{ $exercise->set_num }}</li>
+                <li>メモ：{{ $exercise->exe_contents }}</li>
+                @endforeach
             </ul>
         </div>
     </div>
