@@ -26,6 +26,9 @@ Route::group(['middleware' => 'auth'],function(){
     //種目登録
     Route::get('/add/exercise/{id}',[ExerciseController::class,'add'])->name('exe.add');
     Route::post('/add/exercise/{id}',[ExerciseController::class,'store'])->name('exe.store');
+    //種目編集
+    Route::get('/add/exercise/{id}/edit/{exe_id}',[ExerciseController::class,'edit'])->name('exe.edit');
+    Route::post('/add/exercise/{id}/edit/{exe_id}',[ExerciseController::class,'update'])->name('exe.update');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -6,6 +6,7 @@ use App\Models\Exercise;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 class ExerciseController extends Controller
 {
@@ -32,5 +33,15 @@ class ExerciseController extends Controller
         $schedule_id->exercises()->save($exercise);
 
         return redirect()->route('index');
+    }
+
+    //編集画面の表示
+    public function edit(int $id,int $exe_id)
+    {
+        $exercise = Exercise::find($exe_id);
+
+        return view('exercise.edit',[
+            'exercise' => $exercise,
+        ]);
     }
 }

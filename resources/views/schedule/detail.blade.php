@@ -18,15 +18,16 @@
                 <li>{{ $schedule->sch_date }}</li>
                 <li>{{ $schedule->sch_part }}</li>
             </ul>
+            @foreach($exercises as $exercise)
             <ul>
-                @foreach($exercises as $exercise)
                 <li>{{ $exercise->name }}</li>
                 <li>重さ：{{ $exercise->weight }}</li>
                 <li>回数：{{ $exercise->repetition }}</li>
                 <li>セット数：{{ $exercise->set_num }}</li>
                 <li>メモ：{{ $exercise->exe_contents }}</li>
-                @endforeach
             </ul>
+            <a href="{{ route('exe.edit',['id' => $schedule->id,'exe_id' => $exercise->id]) }}">編集</a>
+            @endforeach
         </div>
     </div>
     <a href="{{ route('index') }}">戻る</a>

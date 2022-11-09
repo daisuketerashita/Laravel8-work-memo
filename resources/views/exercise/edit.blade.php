@@ -13,30 +13,30 @@
 
 <body class="antialiased">
     <div>
-        <form method='POST' action="{{ route('exe.store',['id' => $schedule_id]) }}" enctype="multipart/form-data">
+        <form method='POST' action="" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
                     <label>種目名</label>
-                    <input type='text' class='form-control' name='name'>
+                    <input type='text' class='form-control' name='name' value="{{ old('name') ?? $exercise->name }}">
                 </div>
                 <div class="form-group">
                     <label>重さ</label>
-                    <input type="number" name="weight">kg
+                    <input type="number" name="weight" value="{{ old('weight') ?? $exercise->weight }}">kg
                 </div>
                 <div class="form-group">
                     <label>レップ数</label>
-                    <input type="number" name="repetition">回
+                    <input type="number" name="repetition" value="{{ old('repetition') ?? $exercise->repetition }}">回
                 </div>
                 <div class="form-group">
                     <label>セット数</label>
-                    <input type="number" name="set_num">セット
+                    <input type="number" name="set_num" value="{{ old('set_num') ?? $exercise->set_num }}">セット
                 </div>
                 <div class="form-group">
                         <label>メモ</label>
-                        <textarea name="exe_contents" id="" cols="30" rows="10"></textarea>
+                        <textarea name="exe_contents" id="" cols="30" rows="10">{{ old('exe_contents') ?? $exercise->exe_contents }}"</textarea>
                     </div>
-                <input type='submit' class='btn btn-primary' value='登録'>
+                <input type='submit' class='btn btn-primary' value='更新'>
             </div>
         </form>
         <a href="{{ route('index') }}">戻る</a>
