@@ -18,6 +18,7 @@
                 <li>{{ $schedule->sch_date }}</li>
                 <li>{{ $schedule->sch_part }}</li>
             </ul>
+            <h4><a href="{{ route('exe.add',['id' => $schedule->id]) }}">種目登録</a></h4>
             @foreach($exercises as $exercise)
             <ul>
                 <li>{{ $exercise->name }}</li>
