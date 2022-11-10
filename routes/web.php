@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'],function(){
     //種目編集
     Route::get('/add/exercise/{id}/edit/{exe_id}',[ExerciseController::class,'edit'])->name('exe.edit');
     Route::post('/add/exercise/{id}/edit/{exe_id}',[ExerciseController::class,'update'])->name('exe.update');
+    //種目削除
+    Route::get('/add/exercise/{id}/delete/{exe_id}',[ExerciseController::class,'delete'])->name('exe.delete');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

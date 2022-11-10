@@ -27,7 +27,8 @@
                 <li>セット数：{{ $exercise->set_num }}</li>
                 <li>メモ：{{ $exercise->exe_contents }}</li>
             </ul>
-            <a href="{{ route('exe.edit',['id' => $schedule->id,'exe_id' => $exercise->id]) }}">編集</a>
+            <a href="{{ route('exe.edit',['id' => $schedule->id,'exe_id' => $exercise->id]) }}">編集</a><br>
+            <a href="{{ route('exe.delete',['id' => $schedule->id,'exe_id' => $exercise->id]) }}">削除</a>
             @endforeach
         </div>
     </div>

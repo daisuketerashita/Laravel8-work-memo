@@ -63,4 +63,15 @@ class ExerciseController extends Controller
 
         return redirect()->route('index');
     }
+
+    //削除機能
+    public function delete(int $id,int $exe_id)
+    {
+        $schedule = Schedule::find($id);
+        $exercise = Exercise::find($exe_id);
+
+        $exercise->delete();
+
+        return redirect()->route('index');
+    }
 }
