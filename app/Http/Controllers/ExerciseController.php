@@ -67,7 +67,6 @@ class ExerciseController extends Controller
     //削除機能
     public function delete(int $id,int $exe_id)
     {
-        $schedule = Schedule::find($id);
         $exercise = Exercise::find($exe_id);
 
         $exercise->delete();
